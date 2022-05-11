@@ -28,6 +28,21 @@ router.get("/bookinfo/:id", (req, res) => {
     });
 });
 
+router.get("/del", (req, res) => {
+  res.render("delete");
+});
+
+router.delete("/del/:id", (req, res) => {
+  const bookname = req.params.id;
+  BookSchema.findOneAndDelete({ bookname: bookname })
+    .then((result) => {
+      res.json({ redirect: "/expost" });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.post("/", (req, res, next) => {
   const name = req.body.name;
   const phone = req.body.phone;

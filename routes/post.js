@@ -6,6 +6,28 @@ router.get("/", (req, res) => {
   res.render("post"); // post.ejs 파일을 render 해라 (app.js의 app.set 설정 덕분에, 이렇게만 적어도 된다.
 });
 
+router.get("/bookinfo/:id", (req, res) => {
+  const authorname = req.params.id;
+
+  // 1번째 방법
+  // BookSchema.findOne({ auther: authorname }, (err, result) => {
+  //   if (result) {
+  //     return res.json(result);
+  //   } else {
+  //     return res.send("등록된 작가가 없습니다.");
+  //   }
+  // });
+
+  // 2번째 방법 : then, catch
+  BookSchema.find({ auther: authorname })
+    .then((result) => {
+      res.json(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 router.post("/", (req, res, next) => {
   const name = req.body.name;
   const phone = req.body.phone;

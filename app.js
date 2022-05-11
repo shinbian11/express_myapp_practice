@@ -6,6 +6,9 @@ var logger = require("morgan");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+const dbconnect = require("./models/index");
+dbconnect();
+
 const testRouter = require("./routes/call");
 const postRouter = require("./routes/post"); // postRouter를 require 해서 가져와서 할당!!
 

@@ -43,4 +43,8 @@ router.get("/getlist", async (req, res) => {
   return res.status(200).json(result);
 });
 
+router.get("/users", (req, res) => {
+  res.render("user");
+});
+
 module.exports = router;

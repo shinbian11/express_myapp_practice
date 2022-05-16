@@ -10,9 +10,11 @@
     <h1>Blog 실습</h1>
     <br />
     <a href="/blog/write">글쓰기</a><br>
-    <p>글 내용들</p>
-    <% for(let i=0; i<content.length;i++) { %>     
-      <a href=""><%= content[i].title%></a><br>
-    <% } %>
+    <h3>글 목록들</h3>
+    <ol>
+      <% for (let i=0; i<content.length; i++) {%>
+        <li><a href=""><%= content[i].title %></a></li>
+    <%}%>
+    </ol>
   </body>
 </html>

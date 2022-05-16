@@ -9,6 +9,10 @@
   <body>
     <h1>Blog 실습</h1>
     <br />
-    <a href="/blog/write">글쓰기</a>
+    <a href="/blog/write">글쓰기</a><br>
+    <p>글 내용들</p>
+    <% for(let i=0; i<content.length;i++) { %>     
+      <a href=""><%= content[i].title%></a><br>
+    <% } %>
   </body>
 </html>

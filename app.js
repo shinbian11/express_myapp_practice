@@ -11,6 +11,7 @@ dbconnect();
 
 const testRouter = require("./routes/call");
 const postRouter = require("./routes/post"); // postRouter를 require 해서 가져와서 할당!!
+const blogRouter = require("./routes/blog");
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
 app.use("/expost", postRouter); // 'http://localhost:3000/expost' 경로에서는 postRouter 라우터를 작동시켜라! 라는 의미
+app.use("/blog", blogRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

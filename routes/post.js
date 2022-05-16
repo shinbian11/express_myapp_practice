@@ -37,4 +37,10 @@ router.post("/", (req, res, next) => {
 
 router.post("/addbook", bookController.addbook);
 
+// bookinfo에 있는 정보를 다 가져오는 코드 (REST API 적용해보기)
+router.get("/getlist", async (req, res) => {
+  const result = await BookSchema.find({}).exec();
+  return res.status(200).json(result);
+});
+
 module.exports = router;
